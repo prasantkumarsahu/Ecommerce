@@ -20,6 +20,6 @@ public class OrdersController {
 
     @GetMapping(value = "/{id}")
     public Orders getOrderById(@PathVariable Integer id){
-        return ordersService.getOrderById(id);
+        return ordersService.getOrdersById(id);
     }
 }

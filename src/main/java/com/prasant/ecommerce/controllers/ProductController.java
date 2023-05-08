@@ -23,13 +23,13 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping(value = "/category/")
+    @GetMapping(value = "/category")
     public List<Product> getProductsBasedOnCategory(@RequestParam String category) {
         return productService.getProductsBasedOnCategory(category);
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteProductById(@PathVariable Integer id) {
-        productService.deleteProductById(id);
+    public String deleteProductById(@PathVariable Integer id) {
+        return productService.deleteProductById(id);
     }
 }

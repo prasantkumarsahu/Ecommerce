@@ -22,10 +22,11 @@ public class ProductService {
     }
 
     public List<Product> getProductsBasedOnCategory(String category) {
-        return productRepository.findByCategory(category);
+        return productRepository.getProductsBasedOnCategory(category);
     }
 
-    public void deleteProductById(Integer id) {
+    public String deleteProductById(Integer id) {
         productRepository.deleteById(id);
+        return "Product deleted!";
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrdersService {
@@ -13,11 +14,15 @@ public class OrdersService {
     IOrdersRepository ordersRepository;
 
     public String createOrders(List<Orders> ordersList) {
+        ordersList.forEach(
+                orders -> orders.getAddress().setUsers(orders.getUsers())
+        );
+
         ordersRepository.saveAll(ordersList);
         return "Orders are created!";
     }
 
-    public Orders getOrderById(Integer id) {
+    public Orders getOrdersById(Integer id) {
         return ordersRepository.findById(id).orElse(null);
     }
 }
