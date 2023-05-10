@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface IProductRepository extends CrudRepository<Product, Integer> {
 
-    @Query(value = "select * from product where category = :category", nativeQuery = true)
+    @Query(value = "select * from products where category = :category", nativeQuery = true)
     List<Product> getProductsBasedOnCategory(String category);
 }

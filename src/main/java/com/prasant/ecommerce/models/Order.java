@@ -7,17 +7,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
-public class Users {
+@Table(name = "orders")
+@JsonIdentityInfo(scope = Order.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String email;
-    private String password;
-    private String phoneNumber;
+    @ManyToOne
+    private User user;
+    @ManyToMany
+    private List<Product> productList;
+    @OneToOne
+    private Address address;
+    private Integer productsQuantity;
 }

@@ -1,7 +1,5 @@
 package com.prasant.ecommerce.models;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +17,7 @@ public class Product {
     private String name;
     private Integer price;
     private String description;
-    private String category;
+    @Enumerated(value = EnumType.STRING)
+    private ProductCategory category;
     private String brand;
 }

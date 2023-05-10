@@ -1,9 +1,9 @@
 package com.prasant.ecommerce.repositories;
 
-import com.prasant.ecommerce.models.Orders;
+import com.prasant.ecommerce.models.Order;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IOrdersRepository extends CrudRepository<Orders, Integer> {
+public interface IOrderRepository extends CrudRepository<Order, Integer> {
 }
